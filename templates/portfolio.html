@@ -4,262 +4,281 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en">
-    <!--<![endif]-->
-    <head>
-        <!-- Title -->
-        <title>GrandTrends</title>
-        <!-- Meta -->
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <!-- Bootstrap Core CSS -->
-        <link rel="stylesheet" href="../static/css/bootstrap.css" >
-        <!-- Template CSS -->
-        <link rel="stylesheet" href="../static/css/animate.css" >
-        <link rel="stylesheet" href="../static/css/font-awesome.css" >
-        <link rel="stylesheet" href="../static/css/nexus.css" >
-        <link rel="stylesheet" href="../static/css/responsive.css" >
-        <link rel="stylesheet" href="../static/css/custom.css" >
-        <!-- Google Fonts-->
+<!--<![endif]-->
+<head>
+    <!-- Title -->
+    <title>GrandTrends</title>
+    <!-- Meta -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="../static/css/animate.css">
+    <link rel="stylesheet" href="../static/css/font-awesome.css">
+    <link rel="stylesheet" href="../static/css/nexus.css">
+    <link rel="stylesheet" href="../static/css/responsive.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+    <!-- Google Fonts-->
 
-    </head>
-    <body>
+</head>
+<body>
 
-    <div id="body-bg">
-            <!-- Phone/Email -->
-            <div id="pre-header" class="background-gray-lighter">
-                <div class="container no-padding">
-                    <div class="row hidden-xs">
-                        <div class="col-sm-6 padding-vert-5">
-                            <strong>Phone:</strong>&nbsp;+234-810-880-6808, +234-814-500-1219
-                        </div>
-                        <div class="col-sm-6 text-right padding-vert-5">
-                            <strong>Email:</strong>&nbsp;grandtrends@gmail.com
-                        </div>
-                    </div>
+<div id="body-bg">
+    <!-- Phone/Email -->
+    <div id="pre-header" class="background-gray-lighter">
+        <div class="container no-padding">
+            <div class="row hidden-xs">
+                <div class="col-sm-6 padding-vert-5">
+                    <strong>Phone:</strong>&nbsp;+234-810-880-6808, +234-814-500-1219
+                </div>
+                <div class="col-sm-6 text-right padding-vert-5">
+                    <strong>Email:</strong>&nbsp;grandtrends@gmail.com
                 </div>
             </div>
-            <!-- End Phone/Email -->
-            <!-- Header -->
-            <div id="header">
-                <div class="container">
-                    <div class="row">
-                        <!-- Logo -->
-                        <div class="logo">
-                            <a href="{{url_for("index")}}" title="">
-                                <img src="../static/img/logo.png" alt="Logo" />
-                            </a>
-                        </div>
-                        <!-- End Logo -->
+        </div>
+    </div>
+    <!-- End Phone/Email -->
+    <!-- Header -->
+    <div id="header">
+        <div class="container">
+            <div class="row">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="{{ url_for("index") }}" title="">
+                        <img class="logo-img" src="../static/img/logo.png" alt="Logo"/>
+                    </a>
+                </div>
+                <!-- End Logo -->
+            </div>
+        </div>
+    </div>
+    <!-- End Header -->
+    <!-- Top Menu -->
+    <div id="hornav" class="bottom-border-shadow">
+        <div class="container no-padding border-bottom">
+            <div class="row">
+                <div class="col-md-8 no-padding">
+                    <div class="visible-lg">
+                        <ul id="hornavmenu" class="nav navbar-nav">
+                            <li>
+                                <a href="{{ url_for("index") }}" class="fa-home">Home</a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for("portfolio") }}" class="active"><span
+                                        class="fa-th ">Portfolio</span></a>
+
+                            </li>
+                            <li>
+                                <a href="{{ url_for("blog") }}"><span class="fa-font ">Blog</span></a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for("service") }}"><span class="fa-copy ">Services</span></a>
+
+                            </li>
+                            <li>
+                                {% if not session.get("username") %}
+                                    <a href="{{url_for("login")}}" class="fa-active" ><span class="fa-th ">Login</span></a>
+                                {% else %}
+                                    <a href="{{url_for("logout")}}" class="fa-active" ><span class="fa-th ">Logout</span></a>
+                                {% endif %}
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-            <!-- End Header -->
-            <!-- Top Menu -->
-            <div id="hornav" class="bottom-border-shadow">
-                <div class="container no-padding border-bottom">
-                    <div class="row">
-                        <div class="col-md-8 no-padding">
-                            <div class="visible-lg">
-                                <ul id="hornavmenu" class="nav navbar-nav">
-                                    <li>
-                                        <a href="{{ url_for("index") }}" class="fa-home">Home</a>
-                                    </li>
-                                    
-                                    
-                                    <li>
-                                        <a href="{{ url_for("portfolio") }}" class="active"><span class="fa-th ">Portfolio</span></a>
-                                        
-                                    </li>
-                                    <li>
-                                        <a href="{{ url_for("blog") }}" ><span class="fa-font ">Blog</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url_for("service") }}"><span class="fa-copy ">Services</span></a>
-                                        
-                                    </li>
-                                    <li>
-                                         <a href="{{ url_for("login") }}"><span class="fa-th ">Login</span></a>
-                                    </li>
-                                            
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-4 no-padding">
-                            <ul class="social-icons pull-right">
-                                <li class="social-rss">
-                                    <a href="#" target="_blank" title="RSS"></a>
+                <div class="col-md-4 no-padding">
+                    <ul class="social-icons pull-right">
+                        {% if session.get("username") %}
+                         <li class="dropdown ">
+                            <img src="../static/img/thumbnail.png" class="dropdown-toggle" width="50px;" height="56px;"
+                                 alt="">
+
+
+                            <ul class="dropdown-menu">
+                                <li><a class="fa " href="#">logged in as {{ user }}</a></li>
+                                <li>
+                                    {% for post in the_user %}
+                                         <a href="{{ url_for("profile", username= post.username ) }}">profile</a>
+                                    {% endfor %}
+
                                 </li>
-                                <li class="social-twitter">
-                                    <a href="#" target="_blank" title="Twitter"></a>
-                                </li>
-                                <li class="social-facebook">
-                                    <a href="#" target="_blank" title="Facebook"></a>
-                                </li>
-                                <li class="social-googleplus">
-                                    <a href="#" target="_blank" title="Google+"></a>
-                                </li>
+                                <li><a href="{{ url_for("logout") }}">Logout</a></li>
+                                <li><a href="{{ url_for("editprofile") }}">Edit profile</a></li>
                             </ul>
-                        </div>
-                    </div>
+                        </li>
+
+                       {% endif %}
+                        <li class="social-rss">
+                            <a href="#" target="_blank" title="RSS"></a>
+                        </li>
+                        <li class="social-twitter">
+                            <a href="#" target="_blank" title="Twitter"></a>
+                        </li>
+                        <li class="social-facebook">
+                            <a href="#" target="_blank" title="Facebook"></a>
+                        </li>
+                        <li class="social-googleplus">
+                            <a href="#" target="_blank" title="Google+"></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-             <!-- End Top Menu -->
-            <!-- === END HEADER === -->
-            <!-- === BEGIN CONTENT === -->
-            <div id="content">
-                <div class="container background-white">
-                    <div class="row margin-vert-30">
-                        <div class="col-md-12">
-                            <h2>Portfolio</h2>
-                            <!-- Filter Buttons -->
-                            <div class="portfolio-filter-container margin-top-20">
-                                <ul class="portfolio-filter">
-                                    <li class="portfolio-filter-label label label-primary">
-                                        filter by:
-                                    </li>
-                                    <li>
-                                        <a href="#" class="portfolio-selected btn btn-default" data-filter="*">All</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="btn btn-default" data-filter=".code">Coding</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="btn btn-default" data-filter=".design">Design</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="btn btn-default" data-filter=".audio">Audio</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="btn btn-default" data-filter=".video">Video</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- End Filter Buttons -->
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 portfolio-group no-padding">
-                            <!-- Portfolio Item -->
-                            {% for post in posts %}
-                                <div class="col-md-3 portfolio-item margin-bottom-40 code">
-                                <div>
-                                    <a href="#">
-                                        <figure>
-                                            <img src="{{ url_for('static', filename='img/' + post.img_path) }}" alt="image1">
-                                            <figcaption>
-                                                <h3 class="margin-top-20">{{ post.title }}</h3>
-                                                <a href="#">
-                                                    <span class="btn btn-primary">read more</span>
-                                                </a>
-                                                <span>{{ post.author }}</span>
-                                                <span>{{ post.about }}</span>
-                                                <span>{{ post.date_posted }}</span>
-
-                                            </figcaption>
-                                        </figure>
-                                    </a>
-                                </div>
-                            </div>
-                            {% endfor %}
-
-                            <!-- End Portfolio Item -->
-                        </div>
-                    </div>
+        </div>
+    </div>
+    <!-- End Top Menu -->
+    <!-- === END HEADER === -->
+    <!-- === BEGIN CONTENT === -->
+    <div id="content">
+        <div class="container background-white">
+            <div class="row margin-vert-30">
+                <div class="col-md-12">
+                    <h2>Portfolio</h2>
+                    <!-- Filter Buttons -->
+                    <ul class="portfolio-filter">
+                                <li class="portfolio-filter-label label label-primary">
+                                Filter by:
+                            </li>
+                            <li>
+                                <a href="{{ url_for("portfolio") }}" class="btn btn-default">Art-work</a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for("portfolio_photo") }}" class="btn btn-default">photography</a>
+                            </li>
+                        </ul>
+                    <!-- End Filter Buttons -->
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-4"><a href="{{ url_for("add_portfolio") }}"><button class="btn btn-primary" type="submit">add portfolio</button></a></div>
-            </div>
-        <br>
-            <!-- === END CONTENT === -->
-    <!-- === BEGIN FOOTER === -->
-            <div id="base">
-                <div class="container bottom-border padding-vert-30">
-                    <div class="row">
-                        <!-- Disclaimer -->
-                        <div class="col-md-4" hidden="">
-                            <h3 class="class margin-bottom-10" >Disclaimer</h3>
-                            <p>.</p>
+                <div class="col-md-12 portfolio-group no-padding">
+                    {% if port_added %}
+                        <div class="alert alert-info" role="alert">
+                            {{ port_added }}
                         </div>
-                        <!-- End Disclaimer -->
-                        <!-- Contact Details -->
-                        <div class="col-md-4 margin-bottom-20">
-                            <h3 class="margin-bottom-10">Contact Details</h3>
-                            <p>
-                                <span class="fa-phone">Telephone:</span>+234-810-880-6808, +234-814-500-1219
-                                <br>
-                                <span class="fa-envelope">Email:</span>
-                                <a href="mailto:info@example.com">info@grandtrends.com</a>
-                                <br>
-                                <span class="fa-link">Website:</span>
-                                <a href="http://www.example.com">www.grandtrends.com</a>
-                            </p>
+                    {% endif %}
+                    <!-- Portfolio Item -->
+                    {% for post in posts %}
+                        <div class="col-md-3 portfolio-item margin-bottom-40 code">
+                            <div>
+                                <a href="#">
+                                    <figure>
+                                        <img class="portimage" src="{{ url_for('static', filename='img/' + post.img_path) }}"
+                                             alt="image1">
+                                        <figcaption>
+                                            <h3 class="margin-top-20">{{ post.title }}</h3>
+
+                                            <span>{{ post.author }}</span><br>
+                                            <span>{{ post.date_posted }}</span><br>
+                                            <a href="{{ url_for("read_art", post_id=post.id) }}">
+                                                <span class="btn btn-primary">read more</span>
+                                            </a>
+
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </div>
                         </div>
-                        <!-- End Contact Details -->
-                        <!-- Sample Menu -->
-                        <div class="col-md-4 margin-bottom-20" hidden="">
-                            <h3 class="margin-bottom-10">Sample Menu</h3>
-                            <ul class="menu">
-                                <li>
-                                    <a class="fa-tasks" href="#">Placerat facer possim</a>
-                                </li>
-                                <li>
-                                    <a class="fa-users" href="#">Quam nunc putamus</a>
-                                </li>
-                                <li>
-                                    <a class="fa-signal" href="#">Velit esse molestie</a>
-                                </li>
-                                <li>
-                                    <a class="fa-coffee" href="#">Nam liber tempor</a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                        <!-- End Sample Menu -->
-                    </div>
+                    {% endfor %}
+
+                    <!-- End Portfolio Item -->
                 </div>
             </div>
-            <!-- Footer -->
-            <div id="footer" class="background-grey">
-                <div class="container">
-                    <div class="row">
-                        <!-- Footer Menu -->
-                        <div id="footermenu" class="col-md-8">
-                            <ul class="list-unstyled list-inline">
-                                 
-                            </ul>
-                        </div>
-                        <!-- End Footer Menu -->
-                        <!-- Copyright -->
-                        <div id="copyright" class="col-md-4">
-                            <p class="pull-right">&copy 2018 GrandTrends</p>
-                        </div>
-                        <!-- End Copyright -->
-                    </div>
-                </div>
-            </div>
-            <!-- End Footer -->
-            <!-- JS -->
-            <script type="text/javascript" src="../static/js/jquery.min.js" ></script>
-            <script type="text/javascript" src="../static/js/bootstrap.min.js" ></script>
-            <script type="text/javascript" src="../static/js/scripts.js"></script>
-            <!-- Isotope - Portfolio Sorting -->
-            <script type="text/javascript" src="../static/js/jquery.isotope.js" ></script>
-            <!-- Mobile Menu - Slicknav -->
-            <script type="text/javascript" src="../static/js/jquery.slicknav.js" ></script>
-            <!-- Animate on Scroll-->
-            <script type="text/javascript" src="../static/js/jquery.visible.js" charset="utf-8"></script>
-            <!-- Sticky Div -->
-            <script type="text/javascript" src="../static/js/jquery.sticky.js" charset="utf-8"></script>
-            <!-- Slimbox2-->
-            <script type="text/javascript" src="../static/js/slimbox2.js" charset="utf-8"></script>
-            <!-- Modernizr -->
-            <script src="../static/js/modernizr.custom.js" type="text/javascript"></script>
-            <!-- End JS -->
+        </div>
     </div>
-    </body>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4"><a href="{{ url_for("add_portfolio") }}">
+            <button class="btn btn-primary" type="submit">Add Portfolio</button>
+        </a></div>
+    </div>
+    <br>
+    <!-- === END CONTENT === -->
+    <!-- === BEGIN FOOTER === -->
+    <div id="base">
+        <div class="container bottom-border padding-vert-30">
+            <div class="row">
+                <!-- Disclaimer -->
+                <div class="col-md-4" hidden="">
+                    <h3 class="class margin-bottom-10">Disclaimer</h3>
+                    <p>.</p>
+                </div>
+                <!-- End Disclaimer -->
+                <!-- Contact Details -->
+                <div class="col-md-4 margin-bottom-20">
+                    <h3 class="margin-bottom-10">Contact Details</h3>
+                    <p>
+                        <span class="fa-phone">Telephone:</span>+234-810-880-6808, +234-814-500-1219
+                        <br>
+                        <span class="fa-envelope">Email:</span>
+                        <a href="mailto:info@example.com">info@grandtrends.com</a>
+                        <br>
+                        <span class="fa-link">Website:</span>
+                        <a href="http://www.example.com">www.grandtrends.com</a>
+                    </p>
+                </div>
+                <!-- End Contact Details -->
+                <!-- Sample Menu -->
+                <div class="col-md-4 margin-bottom-20" hidden="">
+                    <h3 class="margin-bottom-10">Sample Menu</h3>
+                    <ul class="menu">
+                        <li>
+                            <a class="fa-tasks" href="#">Placerat facer possim</a>
+                        </li>
+                        <li>
+                            <a class="fa-users" href="#">Quam nunc putamus</a>
+                        </li>
+                        <li>
+                            <a class="fa-signal" href="#">Velit esse molestie</a>
+                        </li>
+                        <li>
+                            <a class="fa-coffee" href="#">Nam liber tempor</a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- End Sample Menu -->
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div id="footer" class="background-grey">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Menu -->
+                <div id="footermenu" class="col-md-8">
+                    <ul class="list-unstyled list-inline">
+
+                    </ul>
+                </div>
+                <!-- End Footer Menu -->
+                <!-- Copyright -->
+                <div id="copyright" class="col-md-4">
+                    <p class="pull-right">&copy 2018 GrandTrends</p>
+                </div>
+                <!-- End Copyright -->
+            </div>
+        </div>
+    </div>
+    <!-- End Footer -->
+    <!-- JS -->
+    <script type="text/javascript" src="../static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../static/js/scripts.js"></script>
+    <!-- Isotope - Portfolio Sorting -->
+    <script type="text/javascript" src="../static/js/jquery.isotope.js"></script>
+    <!-- Mobile Menu - Slicknav -->
+    <script type="text/javascript" src="../static/js/jquery.slicknav.js"></script>
+    <!-- Animate on Scroll-->
+    <script type="text/javascript" src="../static/js/jquery.visible.js" charset="utf-8"></script>
+    <!-- Sticky Div -->
+    <script type="text/javascript" src="../static/js/jquery.sticky.js" charset="utf-8"></script>
+    <!-- Slimbox2-->
+    <script type="text/javascript" src="../static/js/slimbox2.js" charset="utf-8"></script>
+    <!-- Modernizr -->
+    <script src="../static/js/modernizr.custom.js" type="text/javascript"></script>
+    <!-- End JS -->
+</div>
+</body>
 </html>
 <!-- === END FOOTER === -->

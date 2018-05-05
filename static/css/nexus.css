@@ -2206,11 +2206,9 @@ ul.social-icons li a {
   display: block;
   width: 56px;
   height: 56px;
-  text-indent: -9999px;
   background-position: 0px -55px;
   background-repeat: no-repeat;
   padding-bottom: 1px;
-  opacity: 1;
 }
 ul.social-icons li a:hover {
   background-position: 8px -33px !important;
@@ -2807,4 +2805,14 @@ ul.posts-list li {
   line-height: 40px;
   min-height: 40px;
   text-align: center;
+}
+.myimage
+{
+    height:250px;
+    width: 250px;
+}
+.portimage
+{
+    height: 200px;
+    width: 200px;
 }

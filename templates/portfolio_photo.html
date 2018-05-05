@@ -22,14 +22,10 @@
     <link rel="stylesheet" href="../static/css/responsive.css">
     <link rel="stylesheet" href="../static/css/custom.css">
     <!-- Google Fonts-->
-    <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300" rel="stylesheet" type="text/css">
+
 </head>
 <body>
-{% if logout %}
-    <div class="alert alert-danger">
-        {{ log_out }}
-    </div>
-{% endif %}
+
 <div id="body-bg">
     <!-- Phone/Email -->
     <div id="pre-header" class="background-gray-lighter">
@@ -46,17 +42,12 @@
     </div>
     <!-- End Phone/Email -->
     <!-- Header -->
-    {% if login %}
-        <div class="alert alert-info" role="alert">
-            {{ login }}
-        </div>
-    {% endif %}
     <div id="header">
         <div class="container">
             <div class="row">
                 <!-- Logo -->
                 <div class="logo">
-                    <a href="{{ url_for("index") }}">
+                    <a href="{{ url_for("index") }}" title="">
                         <img class="logo-img" src="../static/img/logo.png" alt="Logo"/>
                     </a>
                 </div>
@@ -73,11 +64,11 @@
                     <div class="visible-lg">
                         <ul id="hornavmenu" class="nav navbar-nav">
                             <li>
-                                <a href="{{ url_for("index") }}" class="fa-home active">Home</a>
+                                <a href="{{ url_for("index") }}" class="fa-home">Home</a>
                             </li>
-
                             <li>
-                                <a href="{{ url_for ("portfolio") }}"><span class="fa-th ">Portfolio</span></a>
+                                <a href="{{ url_for("portfolio") }}" class="active"><span
+                                        class="fa-th ">Portfolio</span></a>
 
                             </li>
                             <li>
@@ -85,27 +76,20 @@
                             </li>
                             <li>
                                 <a href="{{ url_for("service") }}"><span class="fa-copy ">Services</span></a>
-                            </li>
 
+                            </li>
                             <li>
                                 {% if not session.get("username") %}
-                                    <a href="{{ url_for("login") }}" class="fa-active"><span class="fa-th ">Login</span></a>
+                                    <a href="{{url_for("login")}}" class="fa-active" ><span class="fa-th ">Login</span></a>
+
                                 {% endif %}
                             </li>
-
-
                         </ul>
                     </div>
-                    {% if logout %}
-                        <div class="alert alert-info">
-                            {{ logout }}
-                        </div>
-                    {% endif %}
-
                 </div>
                 <div class="col-md-4 no-padding">
-                    <ul class="social-icons">
-                       {% if session.get("username") %}
+                    <ul class="social-icons pull-right">
+                        {% if session.get("username") %}
                          <li class="dropdown ">
                             <img src="../static/img/thumbnail.png" class="dropdown-toggle" width="50px;" height="56px;"
                                  alt="">
@@ -145,161 +129,73 @@
     <!-- End Top Menu -->
     <!-- === END HEADER === -->
     <!-- === BEGIN CONTENT === -->
+    <div id="content">
+        <div class="container background-white">
+            <div class="row margin-vert-30">
+                <div class="col-md-12">
+                    <h2>Portfolio</h2>
+                    <!-- Filter Buttons -->
 
+                        <ul class="portfolio-filter">
+                            <li class="portfolio-filter-label label label-primary">
+                                Filter by:
+                            </li>
 
-    <div id="slideshow" class="bottom-border-shadow">
-        <div class="container no-padding background-white bottom-border">
-            <div class="row">
-                <!-- Carousel Slideshow -->
-                <div id="carousel-example" class="carousel slide" data-ride="carousel">
-                    <!-- Carousel Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example" data-slide-to="1"></li>
-                        <li data-target="#carousel-example" data-slide-to="2"></li>
-                    </ol>
-                    <div class="clearfix"></div>
-                    <!-- End Carousel Indicators -->
-                    <!-- Carousel Images -->
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <img src="../static/img/slideshow/slide1.jpg">
-                        </div>
-                        <div class="item">
-                            <img src="../static/img/slideshow/slide2.jpg">
-                        </div>
-                        <div class="item">
-                            <img src="../static/img/slideshow/slide3.jpg">
-                        </div>
-                        <div class="item">
-                            <img src="../static/img/slideshow/slide4.jpg">
-                        </div>
-                    </div>
-                    <!-- End Carousel Images -->
-                    <!-- Carousel Controls -->
-                    <a class="left carousel-control" href="#carousel-example" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-example" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
-                    <!-- End Carousel Controls -->
-                </div>
-                <!-- End Carousel Slideshow -->
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 padding-vert-5">
-                <div id="content" class="bottom-border-shadow">
-                    <div class="container background-white bottom-border">
-                        <div class="row margin-vert-30">
-                            <!-- Main Text -->
-                            <div class="col-md-6">
-                                <h2>Welcome to GrandTrends</h2>
-                                <p>We are a team targeted at building and equiping you for the write purpose using our
-                                    website to display your songs, articles, novels and write-ups. we also proofread
-                                    documents but all this at low rates to make things comfortable for all categories
-                                    including students and writers in training.</p>
-                                <p></p>
-                            </div>
-                            <!-- End Main Text -->
-                            <div class="col-md-6">
-                                <h3 class="padding-vert-10">What we do.</h3>
-                                <p>Duis sit amet orci et lectus dictum auctor a nec enim. Donec suscipit fringilla
-                                    elementum. Suspendisse nec justo ut felis ornare tincidunt vitae et lectus.</p>
-                                <ul class="tick animate fadeInRight">
-                                    <li>Online display & publicity</li>
-                                    <li>Display</li>
-                                    <li>Font Choosers</li>
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- Portfolio -->
-                <div id="portfolio" class="bottom-border-shadow">
-                    <div class="container bottom-border">
-                        <div class="row padding-top-40">
-                            <h3>Books/Articles</h3>
-
-                            <ul class="portfolio-group">
-                                <!-- Portfolio Item -->
-                                {% for post in port %}
-                                    <li class="portfolio-item  margin-bottom-40">
-                                        <a href="#">
-                                            <figure class="animate fadeInLeft">
-                                                <img src="{{ url_for('static', filename='img/' + post.img_path) }}"
-                                                     width="190px" height="200px" alt="image1">
-                                                <figcaption>
-                                                    <h3>{{ post.title }}</h3>
-                                                    <span>{{ post.author }}</span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </li>
-                                    <!-- //Portfolio Item// -->
-                                    <!-- Portfolio Item -->
-                                {% endfor %}
-                                <!-- //Portfolio Item// -->
-                            </ul>
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Portfolio -->
-            <!-- === END CONTENT === -->
-            <div class="panel panel-default bottom-border  col-md-4">
-                <div class="panel-heading">
-                    <h5 class="panel-title padding-top-20">Latest Ariticles and poems</h5>
-                </div>
-                {% for post in posts %}
-                    <div class="panel-body">
-                        <ul class="posts-list margin-top-10">
                             <li>
-
-                                <div class="clearfix"></div>
+                                <a href="{{ url_for("portfolio") }}" class="btn btn-default" >Art-work</a>
                             </li>
                             <li>
-                                <div class="recent-post">
-                                    <a href="">
-                                        <img class="pull-left" src="../static/img/blog/thumbs/thumb2.jpg" alt="thumb2">
-                                    </a>
-                                    <a href="#" class="posts-list-title">{{ post.title }} by {{ post.author }}</a>
-                                    <br>
-                                    <span class="recent-post-date">
-                                    {{ post.date_posted }}
-                                </span>
-                                </div>
-                                <div class="clearfix"></div>
+                                <a href="{{ url_for("portfolio_photo") }}" class="btn btn-default" >photography</a>
                             </li>
                         </ul>
-                    </div>
-                {% endfor %}
 
-            </div>
-            <!-- End recent Posts -->
-            <!-- About -->
-            <div class="panel panel-default bottom-border col-md-4">
-                <div class="panel-heading">
-                    <h3 class="panel-title">About</h3>
-                </div>
-                <div class="panel-body">
-                    Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce
-                    condimentum eleifend enim a feugiat.
+                    <!-- End Filter Buttons -->
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12 portfolio-group no-padding">
+                    {% if port_added %}
+                        <div class="alert alert-info" role="alert">
+                            {{ port_added }}
+                        </div>
+                    {% endif %}
+                    <!-- Portfolio Item -->
+                    {% for post in posts %}
+                        <div class="col-md-3 portfolio-item margin-bottom-40 code">
+                            <div>
+                                <a href="#">
+                                    <figure>
+                                        <img class="portimage" src="{{ url_for('static', filename='img/' + post.img_path) }}"
+                                             alt="image1">
+                                        <figcaption>
+                                            <h3 class="margin-top-20">{{ post.title }}</h3>
 
+                                            <span>{{ post.author }}</span>
+
+                                            <span>{{ post.date_posted }}</span>
+                                            <a href="{{ url_for("read_photo", post_id=post.id) }}">
+                                                <span class="btn btn-primary">read more</span>
+                                            </a>
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <!-- End Portfolio Item -->
+                </div>
+            </div>
         </div>
-
     </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4"><a href="{{ url_for("add_portfolio") }}">
+            <button class="btn btn-primary" type="submit">Add Portfolio</button>
+        </a></div>
+    </div>
+    <br>
+    <!-- === END CONTENT === -->
     <!-- === BEGIN FOOTER === -->
     <div id="base">
         <div class="container bottom-border padding-vert-30">

@@ -47,7 +47,7 @@
                 <!-- Logo -->
                 <div class="logo">
                     <a href="index.html" title="">
-                        <img src="../static/img/logo.png" alt="Logo"/>
+                        <img class="logo-img" src="../static/img/logo.png" alt="Logo"/>
                     </a>
                 </div>
                 <!-- End Logo -->
@@ -79,14 +79,35 @@
 
                             </li>
                             <li>
-                                <a href="{{ url_for("login") }}" class="fa-active"><span class="fa-th ">Login</span></a>
+                                {% if not session.get("username") %}
+                                    <a href="{{ url_for("login") }}" class="fa-active"><span class="fa-th ">Login</span></a>
+                                {% endif %}
                             </li>
-
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-4 no-padding">
                     <ul class="social-icons pull-right">
+                        {% if session.get("username") %}
+                         <li class="dropdown ">
+                            <img src="../static/img/thumbnail.png" class="dropdown-toggle" width="50px;" height="56px;"
+                                 alt="">
+
+
+                            <ul class="dropdown-menu">
+                                <li><a class="fa " href="#">logged in as {{ user }}</a></li>
+                                <li>
+                                    {% for post in the_user %}
+                                         <a href="{{ url_for("profile", username= post.username ) }}">profile</a>
+                                    {% endfor %}
+
+                                </li>
+                                <li><a href="{{ url_for("logout") }}">Logout</a></li>
+                                <li><a href="{{ url_for("editprofile") }}">Edit profile</a></li>
+                            </ul>
+                        </li>
+
+                       {% endif %}
                         <li class="social-rss">
                             <a href="#" target="_blank" title="RSS"></a>
                         </li>
@@ -127,10 +148,13 @@
                         </div>
                         <label>TITLE</label>
                         <input class="form-control margin-bottom-20" type="text" name="title">
-                        <label>AUTHOR</label>
-                        <input class="form-control margin-bottom-20" type="text" name="author">
                         <label>SELECT IMAGE</label>
                         <input type="file" name="img" required><br>
+                        <label>SELECT CATEGORY</label><br>
+                        <select name="category" required>
+                            <option value="volvo">Photography</option>
+                            <option value="saab">Art-work</option>
+                        </select><br><br>
                         <label>ABOUT IMAGE</label>
                         <textarea name="about" id="" cols="55" rows="5"
                                   class="form-control margin-bottom-20"></textarea>

@@ -48,7 +48,7 @@
                         <!-- Logo -->
                         <div class="logo">
                             <a href="{{ url_for("index") }}" >
-                                <img src="../static/img/logo.png" alt="Logo" />
+                                <img class="logo-img" src="../static/img/logo.png" alt="Logo" />
                             </a>
                         </div>
                         <!-- End Logo -->
@@ -79,14 +79,36 @@
                                         
                                     </li>
                                     <li>
-                                         <a href="{{ url_for("login") }}"><span class="fa-th ">Login</span></a>
-                                    </li>
+                                {% if not session.get("username") %}
+                                    <a href="{{url_for("login")}}" class="fa-active" ><span class="fa-th ">Login</span></a>
+                                {% endif %}
+                            </li>
                                             
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-4 no-padding">
                             <ul class="social-icons pull-right">
+                                {% if session.get("username") %}
+                         <li class="dropdown ">
+                            <img src="../static/img/thumbnail.png" class="dropdown-toggle" width="50px;" height="56px;"
+                                 alt="">
+
+
+                            <ul class="dropdown-menu">
+                                <li><a class="fa " href="#">logged in as {{ user }}</a></li>
+                                <li>
+                                    {% for post in the_user %}
+                                         <a href="{{ url_for("profile", username= post.username ) }}">profile</a>
+                                    {% endfor %}
+
+                                </li>
+                                <li><a href="{{ url_for("logout") }}">Logout</a></li>
+                                <li><a href="{{ url_for("editprofile") }}">Edit profile</a></li>
+                            </ul>
+                        </li>
+
+                       {% endif %}
                                 <li class="social-rss">
                                     <a href="#" target="_blank" title="RSS"></a>
                                 </li>
